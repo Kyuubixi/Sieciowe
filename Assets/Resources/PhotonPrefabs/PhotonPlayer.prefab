@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8028337745491462426}
   - component: {fileID: 5013000627401405022}
   - component: {fileID: -1232534840574299622}
-  - component: {fileID: 4492675119587932271}
+  - component: {fileID: 5714169364031663652}
   m_Layer: 0
   m_Name: PhotonPlayer
   m_TagString: Untagged
@@ -51,7 +51,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683374315926109771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -92,7 +92,7 @@ BoxCollider:
   m_GameObject: {fileID: 1683374315926109771}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &4492675119587932271
+--- !u!114 &5714169364031663652
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1683374315926109771}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d26945f27f111142b95a18ccf9b35f3, type: 3}
+  m_Script: {fileID: 11500000, guid: bffe330b25cebb349817fbe604d4bf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pV: {fileID: 5013000627401405022}
+  myAvatar: {fileID: 0}

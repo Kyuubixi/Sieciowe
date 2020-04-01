@@ -17,21 +17,21 @@ public class PRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     
     private void Awake()
     {
-        if (PRoom._roomInstance == null)
+        if (_roomInstance == null)
         {
-            PRoom._roomInstance = this;
+            _roomInstance = this;
         }
         else
         {
-            if (PRoom._roomInstance != this)
+            if (_roomInstance != this)
             {
-                Destroy(PRoom._roomInstance.gameObject);
-                PRoom._roomInstance = this;
+                Destroy(_roomInstance.gameObject);
+                _roomInstance = this;
             }
         }
         
         
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
 
         _photonView = GetComponent<PhotonView>();
     }
@@ -61,7 +61,7 @@ public class PRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     private void CreatePlayer()
     {
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), new Vector3(0, 0, 0),
+        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayer"), new Vector3(0f, 0f, 0f), 
             Quaternion.identity, 0);
     }
 
