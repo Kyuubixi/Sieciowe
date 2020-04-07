@@ -76,7 +76,7 @@ public class PLobby : MonoBehaviourPunCallbacks
     {
         Random random = new Random();
         int randomRoomIndex = random.Next(0, 10000);
-        RoomOptions roomOptions = new RoomOptions() {IsVisible = true, IsOpen = true, MaxPlayers = 2};
+        RoomOptions roomOptions = new RoomOptions() {IsVisible = true, IsOpen = true, MaxPlayers = 20};
         PhotonNetwork.CreateRoom("Room" + randomRoomIndex, roomOptions);
         textPanel.text += "Created room" + randomRoomIndex + "\n";
     }

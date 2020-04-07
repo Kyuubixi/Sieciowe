@@ -23,6 +23,9 @@ public class GameSetup : MonoBehaviour
 
     public List<GameObject> spawnPoints;
 
+    public Joystick movementJoystick;
+    public Joystick rotationJoystick;
+
     private void Awake()
     {
         if (_gameSetupInstance == null)

@@ -7,40 +7,34 @@ using UnityEngine;
 public class MovementSystem : MonoBehaviour
 {
     private PhotonView _pv;
+    private Rigidbody _rb;
     private CharacterController _myCharacterController;
     [SerializeField] private float movementSpeed;
-    private float _sprintingMovementSpeed;
     [SerializeField] private float rotationSpeed;
-    private float _mouseX;
-    private bool _isSprinting = false;
 
     private void Awake()
     {
         _pv = GetComponent<PhotonView>();
+        _rb = GetComponent<Rigidbody>();
         _myCharacterController = GetComponent<CharacterController>();
-        _sprintingMovementSpeed = movementSpeed * 2;
     }
 
     void Update()
     {
         if (!_pv.IsMine) return;
-        if (Input.GetKey(KeyCode.LeftShift) ? _isSprinting = true : _isSprinting = false);
-        Movement(!_isSprinting ? movementSpeed : _sprintingMovementSpeed);
+        Movement();
         Rotation();
     }
 
 
-    private void Movement(float pMovementSpeed)
+    private void Movement()
     {
-        if (Input.GetKey(KeyCode.W)) _myCharacterController.Move(pMovementSpeed * Time.deltaTime * transform.forward);
-        if (Input.GetKey(KeyCode.A)) _myCharacterController.Move(pMovementSpeed * Time.deltaTime * -transform.right);
-        if (Input.GetKey(KeyCode.S)) _myCharacterController.Move(pMovementSpeed * Time.deltaTime * -transform.forward);
-        if (Input.GetKey(KeyCode.D)) _myCharacterController.Move(pMovementSpeed * Time.deltaTime * transform.right);
+        var movementJoystick = GameSetup.GameSetupInstance.movementJoystick;
+        _rb.AddRelativeForce(Time.deltaTime * movementSpeed * new Vector3(movementJoystick.Horizontal, 0, movementJoystick.Vertical));
     }
 
     private void Rotation()
     {
-        _mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
-        transform.Rotate(new Vector3(0f, _mouseX, 0f));
+        transform.Rotate(new Vector3(0f, GameSetup.GameSetupInstance.rotationJoystick.Horizontal, 0f) * rotationSpeed);
     }
 }
