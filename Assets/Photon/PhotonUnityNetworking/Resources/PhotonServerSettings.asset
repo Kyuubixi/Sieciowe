@@ -35,5 +35,9 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - RPC_AddCharacter
+  - Shoot
+  - RPC_Fire
+  - TakeDamage
+  - RPC_TakeDamage
   DisableAutoOpenWizard: 1
   ShowSettings: 0
